@@ -1,5 +1,5 @@
 //Henry Lam
-//11/3/24
+//11/4/24
 //CPSC-39-12111
 
 public class RecursionProblems {
@@ -31,6 +31,15 @@ public class RecursionProblems {
         if (str.startsWith("hi")) return 1 + countHi2(str.substring(2)); // Count "hi" if no 'x' before
         if (str.startsWith("xhi")) return countHi2(str.substring(3)); // Skip "xhi" to ignore this "hi"
         return countHi2(str.substring(1)); // Skip one character if neither "hi" nor "xhi"
+    }
+
+    // Counts non-overlapping occurrences of the substring `sub` in `str`
+    public static int strCount(String str, String sub) {
+        if (str.length() < sub.length()) return 0; // Base case: if `str` is shorter than `sub`, return 0
+        if (str.startsWith(sub)) { // Check if `str` starts with `sub`
+            return 1 + strCount(str.substring(sub.length()), sub); // Count one, move forward by sub's length
+        }
+        return strCount(str.substring(1), sub); // Move one character forward if no match at start
     }
 
 }

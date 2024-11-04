@@ -1,5 +1,5 @@
 //Henry Lam
-//11/3/24
+//11/4/24
 //CPSC-39-12111
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,6 +25,26 @@ class RecursionProblemsTest {
         assertEquals(1, RecursionProblems.countHi("hi")); // Single "hi" at the start should return 1
         assertEquals(0, RecursionProblems.countHi("hello")); // No "hi" in input should return 0
         assertEquals(3, RecursionProblems.countHi("hihihi")); // Three "hi" without overlap should return 3
+    }
+
+    // Tests for countHi2 method
+    @Test
+    void testCountHi2() {
+        assertEquals(1, RecursionProblems.countHi2("ahixhi")); // Only one "hi" should count due to 'x'
+        assertEquals(2, RecursionProblems.countHi2("ahibhi")); // Two "hi" with no 'x' should return 2
+        assertEquals(0, RecursionProblems.countHi2("xhixhi")); // "hi" after 'x' should be ignored, return 0
+        assertEquals(1, RecursionProblems.countHi2("hixhi")); // Single "hi" with 'x' ignored should return 1
+        assertEquals(1, RecursionProblems.countHi2("ahixhixhi")); // Only first "hi" should count, return 1
+    }
+
+    // Tests for strCount method
+    @Test
+    void testStrCount() {
+        assertEquals(2, RecursionProblems.strCount("catcowcat", "cat")); // Two "cat" should return 2
+        assertEquals(1, RecursionProblems.strCount("catcowcat", "cow")); // Single "cow" should return 1
+        assertEquals(0, RecursionProblems.strCount("catcowcat", "dog")); // No "dog" should return 0
+        assertEquals(3, RecursionProblems.strCount("catcatcat", "cat")); // Three "cat" without overlap should return 3
+        assertEquals(0, RecursionProblems.strCount("catcatt", "att")); // No non-overlapping "att" should return 0
     }
 
 }
