@@ -1,5 +1,5 @@
 //Henry Lam
-//11/4/24
+//11/5/24
 //CPSC-39-12111
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -45,6 +45,16 @@ class RecursionProblemsTest {
         assertEquals(0, RecursionProblems.strCount("catcowcat", "dog")); // No "dog" should return 0
         assertEquals(3, RecursionProblems.strCount("catcatcat", "cat")); // Three "cat" without overlap should return 3
         assertEquals(0, RecursionProblems.strCount("catcatt", "att")); // No non-overlapping "att" should return 0
+    }
+
+    // Tests for stringClean method
+    @Test
+    void testStringClean() {
+        assertEquals("yza", RecursionProblems.stringClean("yyzzza")); // Consecutive "yy" and "zzz" cleaned
+        assertEquals("abcd", RecursionProblems.stringClean("abbbcdd")); // Consecutive "bbb" and "dd" cleaned
+        assertEquals("Helo", RecursionProblems.stringClean("Hello")); // Consecutive "ll" cleaned
+        assertEquals("a", RecursionProblems.stringClean("a")); // Single character should return as-is
+        assertEquals("", RecursionProblems.stringClean("")); // Empty string should return as-is
     }
 
 }

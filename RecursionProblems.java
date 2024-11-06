@@ -1,5 +1,5 @@
 //Henry Lam
-//11/4/24
+//11/5/24
 //CPSC-39-12111
 
 public class RecursionProblems {
@@ -40,6 +40,15 @@ public class RecursionProblems {
             return 1 + strCount(str.substring(sub.length()), sub); // Count one, move forward by sub's length
         }
         return strCount(str.substring(1), sub); // Move one character forward if no match at start
+    }
+
+    // Returns a "cleaned" version of the string with consecutive duplicates removed
+    public static String stringClean(String str) {
+        if (str.length() < 2) return str; // Base case: if `str` has fewer than 2 chars, return `str`
+        if (str.charAt(0) == str.charAt(1)) { // Check if first two characters are the same
+            return stringClean(str.substring(1)); // Skip the duplicate character
+        }
+        return str.charAt(0) + stringClean(str.substring(1)); // Keep first character, clean the rest
     }
 
 }
